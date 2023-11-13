@@ -9,7 +9,9 @@
   {
     "version": "0.2",
     "title": "latest",
-    "aliases": []
+    "aliases": [
+      "latest"
+    ]
   },
   {
     "version": "0.1",
