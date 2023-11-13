@@ -1,6 +1,8 @@
 # Welcome to my test of mike versioning
 
-This is version 0.1
+v0.2
+
+This is the beta docs
 
 ## Commands
 
