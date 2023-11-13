@@ -13,15 +13,9 @@ jobs:
       - uses: actions/setup-python@v4
         with:
           python-version: 3.x
-      - run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV
-      - uses: actions/cache@v3
-        with:
-          key: mkdocs-material-${{ env.cache_id }}
-          path: .cache
-          restore-keys: |
-            mkdocs-material-
-      - run: pip install mkdocs-material mike
-      - name: Fetch full gh-pages branch and creat user
+          cache: "pip"
+      - run: pip install -r requirements.txt
+      - name: Fetch full gh-pages branch and create user
         run: |
           git fetch origin gh-pages --depth=1
           git config user.name ci-bot
