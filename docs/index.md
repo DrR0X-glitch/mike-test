@@ -1,6 +1,6 @@
 # Welcome to my test of mike versioning
 
-v0.2
+v0.3
 
 This is the beta docs
 
