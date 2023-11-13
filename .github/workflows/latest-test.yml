@@ -28,5 +28,11 @@ jobs:
           git config user.email ci-bot@example.com
       - name: Get current latest version number
         run: |
-          echo "version=$(mike list latest -j).version" >> $GITHUB_ENV
+          content=`mike list latest -j`
+          # the following lines are only required for multi line json
+          content="${content//'%'/'%25'}"
+          content="${content//$'\n'/'%0A'}"
+          content="${content//$'\r'/'%0D'}"
+          # end of optional handling for multi line json
+          echo "version=$content.version" >> $GITHUB_ENV
       - run: mike deploy -p -u ${{ env.version }} latest -t latest
