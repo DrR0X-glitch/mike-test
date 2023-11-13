@@ -3,24 +3,32 @@
     "version": "{%0A",
     "title": "latest",
     "aliases": [
-      "]%0A}.version",
-      "title:,%0A",
-      "version:",
-      "latest,%0A",
+      "[%250A,%0A",
+      "latest",
       "latest%0A",
       "aliases:",
-      "version:,%0A",
-      "[%0A",
       "0.2,%250A,%0A",
-      "title:",
-      "[%250A,%0A",
+      "aliases:,%0A",
+      "version:",
+      "[%0A",
       "0.2,%0A",
+      "latest%250A%0A",
       "]%250A}.version,%0A",
       "latest,%250A,%0A",
+      "title:,%0A",
       "{%250A,%0A",
-      "latest",
-      "latest%250A%0A",
-      "aliases:,%0A"
+      "title:",
+      "latest,%0A",
+      "]%0A}.version",
+      "version:,%0A"
+    ]
+  },
+  {
+    "version": "mike",
+    "title": "mike",
+    "aliases": [
+      "list",
+      "stable"
     ]
   },
   {
