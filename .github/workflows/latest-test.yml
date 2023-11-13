@@ -22,6 +22,6 @@ jobs:
           git config user.email ci-bot@example.com
       - name: Get current latest version number
         run: |
-          version="mike list stable | grep -oP '\(\K[^\)]+' | cut -d ')' -f 1"
+          version=`mike list stable | grep -oP '\(\K[^\)]+' | cut -d ')' -f 1`
           echo "version=$version" >> $GITHUB_ENV
       - run: echo "${{env.version}}"
