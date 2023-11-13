@@ -24,4 +24,4 @@ jobs:
         run: |
           version="mike list stable | grep -oP '\(\K[^\)]+' | cut -d ')' -f 1"
           echo "version=$version" >> $GITHUB_ENV
-      - run: mike deploy -p -u ${{ env.version }} latest -t latest
+      - run: echo "${{env.version}}"
