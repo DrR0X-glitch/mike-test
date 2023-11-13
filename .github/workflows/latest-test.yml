@@ -28,5 +28,5 @@ jobs:
           content="${content//$'\n'/'%0A'}"
           content="${content//$'\r'/'%0D'}"
           # end of optional handling for multi line json
-          echo "version=$content.version" >> $GITHUB_ENV
+          echo "version=fromJson($content).version" >> $GITHUB_ENV
       - run: mike deploy -p -u ${{ env.version }} latest -t latest
