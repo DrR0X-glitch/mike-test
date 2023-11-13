@@ -24,12 +24,11 @@
 #       - run: pip install "mkdocs-material mike"
 #       - run: mike deploy -
 
-name: ci
+name: latest-test
 on:
   push:
     branches:
       - latest
-      - beta
 jobs:
   deploy:
     runs-on: ubuntu-latest
