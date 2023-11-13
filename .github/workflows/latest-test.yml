@@ -1,42 +1,27 @@
-# name: ci
-# on:
-#   push:
-#     branches:
-#       - latest
-#       - beta
-# permissions:
-#   contents: write
-# jobs:
-#   deploy:
-#     runs-on: ubuntu-latest
-#     steps:
-#       - uses: actions/checkout@v4
-#       - uses: actions/setup-python@v4
-#         with:
-#           python-version: 3.x
-#       - run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV
-#       - uses: actions/cache@v3
-#         with:
-#           key: mkdocs-material-${{ env.cache_id }}
-#           path: .cache
-#           restore-keys: |
-#             mkdocs-material-
-#       - run: pip install "mkdocs-material mike"
-#       - run: mike deploy -
-
-name: latest-test
+name: Overwrite Latest Version
 on:
   push:
     branches:
       - latest
+permissions:
+  contents: write
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "hi=$(Hello world!)" >> $GITHUB_ENV
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v4
+        with:
+          python-version: 3.x
+      - run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV
       - uses: actions/cache@v3
         with:
-          key: test-${{ env.hi }}
+          key: mkdocs-material-${{ env.cache_id }}
           path: .cache
           restore-keys: |
-            test-
+            mkdocs-material-
+      - name: Get current latest version number
+        run: |
+          echo "version=$(mike list latest | grep -oP '\(\K[^\)]+' | cut -d ')' -f 1)" >> $GITHUB_ENV
+      - run: pip install mkdocs-material mike
+      - run: mike deploy -p -u ${{ env.version }} latest -t latest
