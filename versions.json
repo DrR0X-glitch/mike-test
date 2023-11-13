@@ -3,15 +3,24 @@
     "version": "{%0A",
     "title": "latest",
     "aliases": [
-      "aliases:",
-      "0.2,%0A",
+      "]%0A}.version",
+      "title:,%0A",
       "version:",
       "latest,%0A",
-      "[%0A",
       "latest%0A",
-      "]%0A}.version",
+      "aliases:",
+      "version:,%0A",
+      "[%0A",
+      "0.2,%250A,%0A",
+      "title:",
+      "[%250A,%0A",
+      "0.2,%0A",
+      "]%250A}.version,%0A",
+      "latest,%250A,%0A",
+      "{%250A,%0A",
       "latest",
-      "title:"
+      "latest%250A%0A",
+      "aliases:,%0A"
     ]
   },
   {
