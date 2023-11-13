@@ -24,4 +24,4 @@ jobs:
         run: |
           echo "version=$(mike list latest | awk -F'[()]' '{print $2}')" >> $GITHUB_ENV
       - run: |
-          echo "${{ env.version }}"
+          mike deploy -u -p ${{ env.version }} latest -t latest

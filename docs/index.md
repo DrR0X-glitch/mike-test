@@ -4,6 +4,8 @@ v0.1
 
 This is the latest docs
 
+changes
+
 ## Commands
 
 - `mkdocs new [dir-name]` - Create a new project.
