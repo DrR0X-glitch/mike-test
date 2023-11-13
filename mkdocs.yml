@@ -1,0 +1,9 @@
+site_name: Test Mike Versioning
+theme:
+  name: material
+extra:
+  version:
+    provider: mike
+plugins:
+  - mike:
+      canonical_version: latest
