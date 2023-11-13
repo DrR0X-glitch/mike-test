@@ -21,7 +21,12 @@ jobs:
           restore-keys: |
             mkdocs-material-
       - run: pip install mkdocs-material mike
+      - name: Fetch full gh-pages branch and creat user
+        run: |
+          git fetch origin gh-pages --depth=1
+          git config user.name ci-bot
+          git config user.email ci-bot@example.com
       - name: Get current latest version number
         run: |
-          echo "version=$(mike list latest | grep -oP '\(\K[^\)]+' | cut -d ')' -f 1)" >> $GITHUB_ENV
+          echo "version=$(mike list latest -j).version" >> $GITHUB_ENV
       - run: mike deploy -p -u ${{ env.version }} latest -t latest
